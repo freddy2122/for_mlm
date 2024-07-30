@@ -1,17 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+// import './dashboard-css/index.css'
+// import './dashboard-css/atlantis.css'
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CustomizationProvider } from './api/theme-context';
+import { Provider } from './api/provider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider>
+      <CustomizationProvider>
+        <App />
+      </CustomizationProvider>
+    </Provider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
